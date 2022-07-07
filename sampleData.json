@@ -1,0 +1,266 @@
+[
+  {
+    "question": {
+      "Id": 51861577,
+      "Body": "Can anybody please explain to me the difference between these two ways of creating a list. Are they the same thing ? If not which one should I use?",
+      "Title": "Python list function or list comprehension"
+    },
+    "ans": [
+      {
+        "Id": "51861670",
+        "Score": "12",
+        "Body": "<p>There is a slight bit of difference in their performance as can be seen from the following:</p>\n<pre><code>squares1 = [x**2 for x in range(1, 11)]</code></pre>\n<blockquote><p>3.07 µs ± 70 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</p></blockquote>\n<pre><code>squares2 = list(x**2 for x in range(1, 11))</code></pre><blockquote><p>3.65 µs ± 35.6 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</p></blockquote><p>this can primarily be because in case 1 you are iterating and generating values for the list at the same time.</p><p>In case 2 you are generating values while iterating and then at the end of it converting the same to a list and this is then stored as a given variable.</p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Id": 20816600,
+      "Body": "How can I create list in Python? How many ways to create list in python",
+      "Title": "Create list in Python",
+      "order": 2
+    },
+    "ans": [
+      {
+        "Body": "<p>In Python, a list is created by placing elements inside square brackets <code>[]</code>, separated by commas.</p>\n<code><span># list of integers</span>my_list = [<span>1</span>, <span>2</span>, <span>3</span>]</code>"
+      },
+      {
+        "Body": "<p><span style=\"font-weight: 400;\">To define lists in Python there are two ways. The first is to add your items between two square brackets.</span></p>\n<pre class=\"lang:python decode:true\" title=\"define a list in python\">items = [1, 2, 3, 4]</pre>\n<p><span style=\"font-weight: 400;\">The 2nd method is to call the Python list built-in function by passing the items to it.</span></p><pre class=\"lang:python decode:true\" title=\"use list function\">Items&nbsp; = list(1, 2,3,4)</pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Body": "What is map in Cpp",
+      "Title": "Map in Cpp",
+      "Id": 138600,
+      "order": 3
+    },
+    "ans": [
+      {
+        "Body": "<p>Using C++11:</p><pre><code>#include &lt;map&gt;\nusing namespace std;\n\nmap&lt;int, char&gt; m = {{1, 'a'}, {3, 'b'}, {5, 'c'}, {7, 'd'}};</code></pre><p>Using <a href=\"http://www.boost.org/doc/libs/1_36_0/libs/assign/doc/index.html\" rel=\"noreferrer\">Boost.Assign</a>:</p><pre><code>#include &lt;map&gt;\n#include \"boost/assign.hpp\"\nusing namespace std;\nusing namespace boost::assign;\n\nmap&lt;int, char&gt; m = map_list_of (1, 'a') (3, 'b') (5, 'c') (7, 'd');</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Body": "Size of an array in Python",
+      "Title": "How to get size of an array in Python?",
+      "Id": 1712227
+    },
+    "ans": [
+      {
+        "Body": "<p>The <a href=\"https://docs.python.org/3/library/functions.html#len\" rel=\"noreferrer\"><code>len()</code></a> function can be used with several different types in Python - both built-in types and library types. For example:</p><pre><code>&gt;&gt;&gt; len([1, 2, 3])\n3</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Del, remove, pop on lists in Python",
+      "Body": "What is the difference between del, remove, pop on lists in Python?",
+      "Id": 11520492
+    },
+    "ans": [
+      {
+        "Body": "<p>The effects of the three different methods to remove an element from a list:</p><p><code>remove</code> removes the <em>first</em> matching <em>value</em>, not a specific index:</p><pre><code>&gt;&gt;&gt; a = [0, 2, 3, 2]\n&gt;&gt;&gt; a.remove(2)\n&gt;&gt;&gt; a\n[0, 3, 2]</code></pre><p><code>del</code> removes the item at a specific index:</p><pre><code>&gt;&gt;&gt; a = [9, 8, 7, 6]\n&gt;&gt;&gt; del a[1]\n&gt;&gt;&gt; a\n[9, 7, 6]</code></pre><p>and <code>pop</code> removes the item at a specific index and returns it.</p><pre><code>&gt;&gt;&gt; a = [4, 3, 5]\n&gt;&gt;&gt; a.pop(1)\n3\n&gt;&gt;&gt; a\n[4, 5]</code></pre><p>Their error modes are different too:</p><pre><code>&gt;&gt;&gt; a = [4, 5, 6]\n&gt;&gt;&gt; a.remove(7)\nTraceback (most recent call last):\n\tFile &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\nValueError: list.remove(x): x not in list\n&gt;&gt;&gt; del a[7]\nTraceback (most recent call last):\n\tFile &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\nIndexError: list assignment index out of range\n&gt;&gt;&gt; a.pop(7)\nTraceback (most recent call last):\n\tFile &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;\nIndexError: pop index out of range</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Body": "Bitwise operation and usage",
+      "Title": "Bitwise operation and usage",
+      "Id": 1746613
+    },
+    "ans": [
+      {
+        "Body": "<p>One typical usage:</p><p><code>|</code> is used to set a certain bit to 1</p><p><code>&amp;</code> is used to test or clear a certain bit </p><ul><li><p>Set a bit (where n is the bit number, and 0 is the least significant bit):</p><p><code>unsigned char a |= (1 &lt;&lt; n);</code></p></li><li><p>Clear a bit:</p><p><code>unsigned char b &amp;= ~(1 &lt;&lt; n);</code></p></li><li><p>Toggle a bit:</p><p><code>unsigned char c ^= (1 &lt;&lt; n);</code></p></li><li><p>Test a bit:</p><p><code>unsigned char e = d &amp; (1 &lt;&lt; n);</code> </p></li></ul><p>Take the case of your list for example:</p><p><code>x | 2</code> is used to set bit 1 of <code>x</code> to 1 </p><p><code>x &amp; 1</code> is used to test if bit 0 of <code>x</code> is 1 or 0    </p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "For loop in Python",
+      "Body": "Which is the best way to loop in Python?",
+      "Id": 4170656,
+      "order": 7
+    },
+    "ans": [
+      {
+        "Body": "<p>You should also know that in Python, iterating over integer indices is bad style, and also slower than the alternative. If you just want to look at each of the items in a list or dict, loop directly through the list or dict.</p><pre><code>mylist = [1,2,3]\nfor item in mylist:\n\tprint item\n\nmydict  = {1:'one', 2:'two', 3:'three'}\nfor key in mydict:\n\tprint key, mydict[key]</code></pre><p>This is actually faster than using the above code with range(), and removes the extraneous <code>i</code> variable.</p><p>If you need to edit items of a list in-place, then you <em>do</em> need the index, but there's still a better way:</p><pre><code>for i, item in enumerate(mylist):\n\tmylist[i] = item**2</code></pre><p>Again, this is both faster and considered more readable.  This one of the main shifts in thinking you need to make when coming from C++ to Python.</p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Iterating over dictionaries using 'for' loops",
+      "Body": "Iterating over dictionaries using 'for' loops",
+      "Id": 3294889,
+      "order": 8
+    },
+    "ans": [
+      {
+        "Body": "<p><code>key</code> is just a variable name.  </p><pre><code>for key in d:</code></pre><p>will simply loop over the keys in the dictionary, rather than the keys and values.  To loop over both key and value you can use the following:</p><p>For Python 3.x:</p><pre><code>for key, value in d.items():</code></pre><p>For Python 2.x:</p><pre><code>for key, value in d.iteritems():</code></pre><p>To test for yourself, change the word <code>key</code> to <code>poop</code>.</p><p>In Python 3.x, <code>iteritems()</code> was replaced with simply <code>items()</code>, which returns a set-like view backed by the dict, like <code>iteritems()</code> but even better. This is also available in 2.7 as <code>viewitems()</code>. </p><p>The operation <code>items()</code> will work for both 2 and 3, but in 2 it will return a list of the dictionary's <code>(key, value)</code> pairs, which will not reflect changes to the dict that happen after the <code>items()</code> call. If you want the 2.x behavior in 3.x, you can call <code>list(d.items())</code>.</p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Check empty Dictionary in Python",
+      "Body": "How can I check whether my dictionary is empty or not?",
+      "Id": 23177439,
+      "order": 9
+    },
+    "ans": [
+      {
+        "Body": "<p>Empty dictionaries <a href=\"https://docs.python.org/2/library/stdtypes.html#truth-value-testing\" rel=\"noreferrer\">evaluate to <code>False</code></a> in Python:</p><pre><code>&gt;&gt;&gt; dct = {}\n&gt;&gt;&gt; bool(dct)\nFalse\n&gt;&gt;&gt; not dct\nTrue\n&gt;&gt;&gt;\n</code></pre>\n<p>Thus, your <code>isEmpty</code> function is unnecessary.  All you need to do is:</p>\n<pre><code>def onMessage(self, socket, message):\nif not self.users:\n\tsocket.send(\"Nobody is online, please use REGISTER command\" \\ \n\t \" in order to register into the server\")\nelse:\n\tsocket.send(\"ONLINE \" + ' ' .join(self.users.keys()))</code></pre>"
+      },
+      {
+        "Body": "<p>Here are three ways you can check if dict is empty. I prefer using the first way only though. The other two ways are way too wordy.</p>\n<pre><code>test_dict = {}\n\nif not test_dict:\n\tprint \"Dict is Empty\"\n\n\nif not bool(test_dict):\n\tprint \"Dict is Empty\"\n\n\nif len(test_dict) == 0:\n\tprint \"Dict is Empty\"\n</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Stack and queue in python",
+      "Body": "How to create stack and queue in Python?",
+      "Id": 50263166,
+      "order": 10
+    },
+    "ans": [
+      {
+        "Body": "<p>You may use list as stack. A good documentation could be found over <a href=\"https://docs.python.org/2/tutorial/datastructures.html\" rel=\"nofollow noreferrer\">here</a>. Your code may look something like this </p><pre><code>&gt;&gt;&gt; stack = [3, 4, 5]\n&gt;&gt;&gt; stack.append(6)\n&gt;&gt;&gt; stack.append(7)\n&gt;&gt;&gt; stack\n[3, 4, 5, 6, 7]\n&gt;&gt;&gt; stack.pop()\n7\n&gt;&gt;&gt; stack\n[3, 4, 5, 6]\n&gt;&gt;&gt; stack.pop()\n6\n&gt;&gt;&gt; stack.pop()\n5\n&gt;&gt;&gt; stack\n[3, 4]</code></pre><p>You might want to <code>import queue</code> in your code for queue implementation</p><pre><code>&gt;&gt;&gt; import queue\n\n&gt;&gt;&gt; L = queue.Queue(maxsize=20)\n&gt;&gt;&gt; L.put(5)\n&gt;&gt;&gt; L.put(9)\n&gt;&gt;&gt; L.put(1)\n&gt;&gt;&gt; L.put(7)\n\n&gt;&gt;&gt; print(L.get())\n5\n&gt;&gt;&gt; print(L.get())\n9\n&gt;&gt;&gt; print(L.get())\n1\n&gt;&gt;&gt; print(L.get())\n7</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "How to use boolean with If statement in python",
+      "Body": "How many way to check a boolean variable in Python?",
+      "Id":38423360,
+      "order": 11
+    },
+    "ans": [
+      {
+        "Body": "<p>You can change the value of a bool all you want. As for an if:</p>\n\n<pre><code>if randombool == True:\n</code></pre>\n\n<p>works, but you can also use:</p>\n\n<pre><code>if randombool:\n</code></pre>\n\n<p>If you want to test whether something is false you can use:</p>\n\n<pre><code>if randombool == False\n</code></pre>\n\n<p>but you can also use:</p>\n\n<pre><code>if not randombool:\n</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Tuples in Python",
+      "Body": "How to use tuple in Python?",
+      "Id": 2488522,
+      "order": 12
+    },
+    "ans": [
+      {
+        "Body": "<p>The tuple is the simplest of Python's sequence types. You can think about it as an immutable (read-only) list:</p>\n\n<pre><code>&gt;&gt;&gt; t = (1, 2, 3)\n&gt;&gt;&gt; print t[0]\n1\n&gt;&gt;&gt; t[0] = 2\nTypeError: tuple object does not support item assignment\n</code></pre>\n\n<p>Tuples can be turned into new lists by just passing them to <code>list()</code> (like any iterable), and any iterable can be turned into a new tuple by passing it to <code>tuple()</code>:</p>\n\n<pre><code>&gt;&gt;&gt; list(t)\n[1, 2, 3]\n&gt;&gt;&gt; tuple([\"hello\", []])\n(\"hello\", [])\n</code></pre>\n\n<p>Hope this helps. Also see <a href=\"http://docs.python.org/tutorial/datastructures.html#tuples-and-sequences\" rel=\"noreferrer\">what the tutorial has to say about tuples.</a></p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "How to implement depth-first search in Python",
+      "Body": "How to implement depth-first search in Python",
+      "Id": 43430309,
+      "order": 13
+    },
+    "ans": [
+      {
+        "Body": "<p>Without recursion:</p>\n\n<pre class=\"lang-py prettyprint-override\"><code>def dfs(graph, node):\n\tvisited = [node]\n\tstack = [node]\n\twhile stack:\n\t\tnode = stack[-1]\n\t\tif node not in visited:\n\t\t\tvisited.extend(node)\n\t\tremove_from_stack = True\n\t\tfor next in graph[node]:\n\t\t\tif next not in visited:\n\t\t\t\tstack.extend(next)\n\t\t\t\tremove_from_stack = False\n\t\t\t\tbreak\n\t\tif remove_from_stack:\n\t\t\tstack.pop()\n\treturn visited\n\nprint (dfs(graph1, 'A'))\n</code></pre>\n\n<p>Output:</p>\n\n<pre><code>['A', 'B', 'S', 'C', 'D', 'E', 'H', 'G', 'F']\n</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Bubble sort in C",
+      "Body": "How to code bubble sort in C?",
+      "Id": 17655748,
+      "order": 14
+    },
+    "ans": [
+      {
+        "Body": "<p>pretty sure your problem is with you algorithm, try to simulate your algorithm in pen and paper. it will help your understanding of your code and the algorithm better :)</p>\n<p>for your convenience here i am including a bubble sort algorithm i did some while ago</p>\n\n<pre><code>void bubbleSort( int a[], int n)\n{\n\tint i,j,temp; // for a={1,2,3,4,5} n is 5\n\n\tn = n - 1;    // bcz otherwise it will get out of index\n\n\tfor(i=0; i&lt;n; i++)\n\t{\n\t\tfor(j=0; j&lt;n-i; j++)\n\t\t{\n\t\tif(a[j]&gt;a[j+1])\n\t\t{\n\t\t\ttemp = a[j+1];\n\t\t\ta[j+1] = a[j];\n\t\t\ta[j] = temp;\n\t\t}\n\n\t\t}\n\n\t}\n\n}\n</code></pre>\n\n<p>i hope this helps</p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Python DateTime current",
+      "Body": "How to get current DateTime in Python?",
+      "Id": 415511,
+      "order": 15
+    },
+    "ans": [
+      {
+        "Body": "<p>Use:</p><pre><code>&gt;&gt;&gt; import datetime\n&gt;&gt;&gt; datetime.datetime.now()\ndatetime.datetime(2009, 1, 6, 15, 8, 24, 78915)\n\n&gt;&gt;&gt; print(datetime.datetime.now())\n2009-01-06 15:08:24.789150</code></pre><p>And just the time:</p><pre><code>&gt;&gt;&gt; datetime.datetime.now().time()\ndatetime.time(15, 8, 24, 78915)\n\n&gt;&gt;&gt; print(datetime.datetime.now().time())\n15:08:24.789150</code></pre><p>See <a href=\"https://docs.python.org/3/library/datetime.html\" rel=\"noreferrer\"><strong>the documentation</strong></a> for more information.</p><p>To save typing, you can import the <code>datetime</code> object from the <code>datetime</code> module:</p><pre><code>&gt;&gt;&gt; from datetime import datetime</code></pre><p>Then remove the leading <code>datetime.</code> from all of the above.</p>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "How do I concatenate two lists in Python?",
+      "Body": "How do I concatenate two lists in Python?",
+      "Id": 1720421,
+      "order": 16
+    },
+    "ans": [
+      {
+        "Body": "<p>Use the <code>+</code> operator to combine the lists:</p><pre><code>listone = [1, 2, 3]\nlisttwo = [4, 5, 6]\n\njoinedlist = listone + listtwo</code></pre><p>Output:</p><pre><code>&gt;&gt;&gt; joinedlist\n[1, 2, 3, 4, 5, 6]</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "What is the difference between Python's list append and extend?",
+      "Body": "When to use append and when to use extend in Python list?",
+      "Id": 252703,
+      "order": 17
+    },
+    "ans": [
+      {
+        "Body": "<p><code>append</code> appends a single element. <code>extend</code> appends a list of elements.</p><p>Note that if you pass a list to append, it still adds one element:</p><pre><code>&gt;&gt;&gt; a = [1, 2, 3]\n&gt;&gt;&gt; a.append([4, 5, 6])\n&gt;&gt;&gt; a\n[1, 2, 3, [4, 5, 6]]</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Parse string to date in Python",
+      "Body": "How to parse a string to date in Python?",
+      "Id": 466345,
+      "order": 18
+    },
+    "ans": [
+      {
+        "Body":"<p><code>datetime.strptime</code> is the main routine for parsing strings into datetimes. It can handle all sorts of formats, with the format determined by a format string you give it:</p><pre><code>from datetime import datetime\ndatetime_object = datetime.strptime('Jun 1 2005  1:33PM', '%b %d %Y %I:%M%p')</code></pre><p>The resulting <code>datetime</code> object is timezone-naive.</p><p>Links:</p><ul><li><p>Python documentation for <code>strptime</code>: <a href=\"https://docs.python.org/2/library/datetime.html#datetime.datetime.strptime\" rel=\"noreferrer\" title=\"datetime.datetime.strptime\">Python 2</a>, <a href=\"https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime\" rel=\"noreferrer\">Python 3</a></p></li><li><p>Python documentation for <code>strptime</code>/<code>strftime</code> format strings: <a href=\"https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior\" rel=\"noreferrer\" title=\"strftime-and-strptime-behavior\">Python 2</a>, <a href=\"https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior\" rel=\"noreferrer\">Python 3</a></p></li><li><p><a href=\"http://strftime.org/\" rel=\"noreferrer\">strftime.org</a> is also a really nice reference for strftime</p></li></ul><p>Notes:</p><ul><li><code>strptime</code> = &quot;string parse time&quot;</li><li><code>strftime</code> = &quot;string format time&quot;</li><li>Pronounce it out loud today &amp; you won't have to search for it again in 6 months.</li></ul><p>Also, as seen in a comment made by @Izkata, if you want a date instead of a datetime, going through datetime handles it nicely:</p><pre><code>datetime.strptime('Jun 1 2005', '%b %d %Y').date() == date(2005, 6, 1)</code></pre>"
+      }
+    ]
+  },
+  {
+    "question": {
+      "Title": "Check if a given key already exists in a dictionary",
+      "Body": "What is the best way to test for a key in the dictionary?",
+      "Id": 1602934,
+      "order": 19
+    },
+    "ans": [
+      {
+        "Body": "<p><a href=\"https://docs.python.org/reference/expressions.html#membership-test-operations\" rel=\"noreferrer\"><code>in</code></a> tests for the existence of a key in a <a href=\"https://docs.python.org/library/stdtypes.html#dict\" rel=\"noreferrer\"><code>dict</code></a>:</p><pre><code>d = {&quot;key1&quot;: 10, &quot;key2&quot;: 23}\n\nif &quot;key1&quot; in d:\n\tprint(&quot;this will execute&quot;)\n\nif &quot;nonexistent key&quot; in d:\n\tprint(&quot;this will not&quot;)</code></pre><hr /><p>Use <a href=\"https://docs.python.org/library/stdtypes.html#dict.get\" rel=\"noreferrer\"><code>dict.get()</code></a> to provide a default value when the key does not exist:</p><pre><code>d = {}\n\nfor i in range(10):\n\td[i] = d.get(i, 0) + 1</code></pre><hr /><p>To provide a default value for <em>every</em> key, either use <a href=\"https://docs.python.org/library/stdtypes.html#dict.setdefault\" rel=\"noreferrer\"><code>dict.setdefault()</code></a> on each assignment:</p><pre><code>d = {}\n\nfor i in range(10):\n\td[i] = d.setdefault(i, 0) + 1</code></pre><p>or use <a href=\"https://docs.python.org/library/collections.html#collections.defaultdict\" rel=\"noreferrer\"><code>defaultdict</code></a> from the <a href=\"https://docs.python.org/library/collections.html\" rel=\"noreferrer\"><code>collections</code></a> module:</p><pre><code>from collections import defaultdict\n\nd = defaultdict(int)\n\nfor i in range(10):\n\td[i] += 1</code></pre>"
+      }
+    ]
+  },
+  {
+     "question": {
+      "Title": "How do I get a substring of a string in Python?",
+      "Body": "How do I get a substring of a string in Python?",
+      "Id": 663171
+    },
+    "ans": [
+      {
+        "Body": "<pre><code>&gt;&gt;&gt; x = \"Hello World!\"\n&gt;&gt;&gt; x[2:]\n'llo World!'\n&gt;&gt;&gt; x[:2]\n'He'\n&gt;&gt;&gt; x[:-2]\n'Hello Worl'\n&gt;&gt;&gt; x[-2:]\n'd!'\n&gt;&gt;&gt; x[2:-2]\n'llo Worl'</code></pre><p>Python calls this concept \"slicing\" and it works on more than just strings. Take a look <a href=\"https://stackoverflow.com/questions/509211/good-primer-for-python-slice-notation\">here</a> for a comprehensive introduction.</p>"
+      }
+    ]
+  }
+
+]
