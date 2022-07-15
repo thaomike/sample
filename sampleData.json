@@ -1,15 +1,13 @@
 [
   {
     "question": {
-      "Id": 51861577,
-      "Body": "Can anybody please explain to me the difference between these two ways of creating a list. Are they the same thing ? If not which one should I use?",
-      "Title": "Python list function or list comprehension"
+      "Id": 743806,
+      "Body": "Split a string into multiple string",
+      "Title": "How to split a string into a list?"
     },
     "ans": [
       {
-        "Id": "51861670",
-        "Score": "12",
-        "Body": "<p>There is a slight bit of difference in their performance as can be seen from the following:</p>\n<pre><code>squares1 = [x**2 for x in range(1, 11)]</code></pre>\n<blockquote><p>3.07 µs ± 70 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</p></blockquote>\n<pre><code>squares2 = list(x**2 for x in range(1, 11))</code></pre><blockquote><p>3.65 µs ± 35.6 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)</p></blockquote><p>this can primarily be because in case 1 you are iterating and generating values for the list at the same time.</p><p>In case 2 you are generating values while iterating and then at the end of it converting the same to a list and this is then stored as a given variable.</p>"
+        "Body": "<pre><code>text.split()</code></pre>\n<p>This should be enough to store each word in a list.  <code>words</code> is already a list of the words from the sentence, so there is no need for the loop.</p>\n<p>Second, it might be a typo, but you have your loop a little messed up. If you really did want to use append, it would be:</p>\n<pre><code>words.append(word)</code></pre>\n<p>not </p>\n<pre><code>word.append(words)</code></pre>"
       }
     ]
   },
@@ -31,7 +29,7 @@
   },
   {
     "question": {
-      "Body": "What is map in Cpp",
+      "Body": "What is map structure in Cpp/C++?",
       "Title": "Map in Cpp",
       "Id": 138600,
       "order": 3
@@ -44,8 +42,8 @@
   },
   {
     "question": {
-      "Body": "Size of an array in Python",
-      "Title": "How to get size of an array in Python?",
+      "Title": "Size of an array in Python",
+      "Body": "How to get size of an array in Python?",
       "Id": 1712227
     },
     "ans": [
@@ -68,7 +66,7 @@
   },
   {
     "question": {
-      "Body": "Bitwise operation and usage",
+      "Body": "Using bitwise operation in Cpp",
       "Title": "Bitwise operation and usage",
       "Id": 1746613
     },
@@ -175,7 +173,7 @@
   {
     "question": {
       "Title": "Bubble sort in C",
-      "Body": "How to code bubble sort in C?",
+      "Body": "How to implement bubble sort in C?",
       "Id": 17655748,
       "order": 14
     },
@@ -240,7 +238,7 @@
   {
     "question": {
       "Title": "Check if a given key already exists in a dictionary",
-      "Body": "What is the best way to test for a key in the dictionary?",
+      "Body": "What is the best way to check existance for a key in the dictionary?",
       "Id": 1602934,
       "order": 19
     },
@@ -254,7 +252,8 @@
      "question": {
       "Title": "How do I get a substring of a string in Python?",
       "Body": "How do I get a substring of a string in Python?",
-      "Id": 663171
+      "Id": 663171,
+      "order": 20
     },
     "ans": [
       {
